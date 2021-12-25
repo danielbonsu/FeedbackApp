@@ -1,5 +1,11 @@
-import { React, useState } from "react";
+import {
+  React,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import "./FeedbackRatingInput.css";
+import { FeedbackContext } from "../../Context";
 
 const FeedbackRatingInput = ({
   setRatingMsg,
@@ -14,6 +20,19 @@ const FeedbackRatingInput = ({
     setRatingMsg(text);
     setText("");
   };
+
+  const { feedbackData } = useContext(
+    FeedbackContext
+  );
+
+  useEffect(() => {
+    // pull on the obj with property edit:true
+    const bb = feedbackData.find(
+      (item) => item.edit
+    );
+
+    bb && setText(bb.msg);
+  }, [feedbackData]);
 
   return (
     <div className='inputContainer'>

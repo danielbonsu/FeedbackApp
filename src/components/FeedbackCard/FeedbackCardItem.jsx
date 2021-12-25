@@ -3,14 +3,15 @@ import "./FeedbackCardItem.css";
 import { FeedbackContext } from "../../Context";
 
 const FeedbackCardItem = ({ item }) => {
-  const { deleteFeedback } = useContext(
-    FeedbackContext
-  );
+  const { deleteFeedback, editFeedback } =
+    useContext(FeedbackContext);
   return (
     <div className='itemContainer'>
       <div className='msg'>{item.msg}</div>
       <div className='modifyBtns'>
-        <span>Edit</span>
+        <span onClick={() => editFeedback(item)}>
+          Edit
+        </span>
         <span
           onClick={() => deleteFeedback(item)}
         >
