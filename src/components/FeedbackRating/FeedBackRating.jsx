@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import "./FeedbackRating.css";
 import FeedBackCard from "../FeedbackCard/FeedBackCard";
+import FeedbackRatingInput from "../FeedbackRatingInput/FeedbackRatingInput";
 
 const FeedBackRating = () => {
   const [rated, setRated] = useState("");
@@ -24,6 +25,7 @@ const FeedBackRating = () => {
           </div>
         ))}
       </div>
+      <FeedbackRatingInput />
       <FeedBackCard />
     </div>
   );
