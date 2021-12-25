@@ -27,11 +27,20 @@ export const FeedbackDistributor = ({
     feedback.id = randy(1000);
     setFeedbackData([...feedbackData, feedback]);
   };
+
+  const deleteFeedback = (feedback) => {
+    setFeedbackData(
+      feedbackData.filter(
+        (item) => item.id !== feedback.id
+      )
+    );
+  };
   return (
     <FeedbackContext.Provider
       value={{
         feedbackData,
         addFeedback,
+        deleteFeedback,
       }}
     >
       {children}

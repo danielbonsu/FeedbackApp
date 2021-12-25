@@ -18,6 +18,10 @@
   background: none;
 }
 
+.form-control:focus .inputContainer {
+  border: 10px solid slateblue;
+}
+
 .inputContainer button {
   width: 30%;
   height: 100%;

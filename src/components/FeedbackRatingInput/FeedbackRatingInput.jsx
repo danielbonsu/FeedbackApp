@@ -12,6 +12,7 @@ const FeedbackRatingInput = ({
 
   const sendFeedback = () => {
     setRatingMsg(text);
+    setText("");
   };
 
   return (

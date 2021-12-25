@@ -25,6 +25,8 @@ const FeedBackRating = () => {
         rating: rated,
         msg: ratingMsg,
       });
+
+      setRated("1");
     }
   };
 
