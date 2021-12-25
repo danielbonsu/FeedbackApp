@@ -4,24 +4,39 @@ import {
   useState,
 } from "react";
 
-const TodoContext = createContext();
+export const FeedbackContext = createContext();
 
-export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useState([
-    { id: 1, msg: "hello world" },
-    { id: 1, msg: "its christmas" },
-  ]);
+export const FeedbackDistributor = ({
+  children,
+}) => {
+  const [feedbackData, setFeedbackData] =
+    useState([
+      {
+        id: 1,
+        msg: "this is a test message",
+        rating: 2,
+      },
+    ]);
 
+  const randy = (num) => {
+    return Math.floor(Math.random() * num);
+  };
+
+  const addFeedback = (feedback) => {
+    console.log(feedback);
+    feedback.id = randy(1000);
+    setFeedbackData([...feedbackData, feedback]);
+  };
   return (
-    <TodoContext.Provider
+    <FeedbackContext.Provider
       value={{
-        todos,
-        setTodos,
+        feedbackData,
+        addFeedback,
       }}
     >
       {children}
-    </TodoContext.Provider>
+    </FeedbackContext.Provider>
   );
 };
 
-export default TodoContext;
+export default FeedbackDistributor;

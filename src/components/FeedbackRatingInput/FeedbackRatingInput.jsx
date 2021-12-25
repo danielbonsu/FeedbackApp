@@ -1,14 +1,32 @@
-import React from "react";
+import { React, useState } from "react";
 import "./FeedbackRatingInput.css";
 
-const FeedbackRatingInput = () => {
+const FeedbackRatingInput = ({
+  setRatingMsg,
+}) => {
+  const [text, setText] = useState("");
+
+  const onChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const sendFeedback = () => {
+    setRatingMsg(text);
+  };
+
   return (
     <div className='inputContainer'>
       <input
         type='text'
+        value={text}
+        onChange={onChange}
         className='form-control'
+        placeholder='Enter Feedback Message'
       />
-      <button className='addFeebackBTN'>
+      <button
+        onClick={sendFeedback}
+        className='addFeebackBTN'
+      >
         Add Feedback
       </button>
     </div>

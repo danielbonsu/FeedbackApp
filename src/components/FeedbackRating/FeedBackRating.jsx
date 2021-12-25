@@ -1,10 +1,36 @@
-import { React, useState } from "react";
+import {
+  React,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import "./FeedbackRating.css";
+import { FeedbackContext } from "../../Context";
 import FeedBackCard from "../FeedbackCard/FeedBackCard";
 import FeedbackRatingInput from "../FeedbackRatingInput/FeedbackRatingInput";
 
 const FeedBackRating = () => {
-  const [rated, setRated] = useState("");
+  const [rated, setRated] = useState("1");
+  const [ratingMsg, setRatingMsg] = useState("");
+
+  const { addFeedback } = useContext(
+    FeedbackContext
+  );
+
+  const sendFeedback = () => {
+    if (!rated || ratingMsg === "") {
+      console.log("masa masa");
+    } else {
+      addFeedback({
+        rating: rated,
+        msg: ratingMsg,
+      });
+    }
+  };
+
+  useEffect(() => {
+    sendFeedback();
+  }, [rated, ratingMsg]);
 
   return (
     <div className='ratingSelectContainer'>
@@ -25,7 +51,9 @@ const FeedBackRating = () => {
           </div>
         ))}
       </div>
-      <FeedbackRatingInput />
+      <FeedbackRatingInput
+        setRatingMsg={setRatingMsg}
+      />
       <FeedBackCard />
     </div>
   );

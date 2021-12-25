@@ -1,0 +1,8 @@
+.itemContainer {
+  width: 92%;
+  height: 30px;
+  border-left: 8px solid skyblue;
+  margin: 10px 0px;
+  padding: 20px;
+  background: #f1f1f1;
+}
