@@ -1,0 +1,37 @@
+.ratingSelectContainer {
+  width: 700px;
+  height: 700px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: aliceblue;
+  flex-direction: column;
+}
+.ratingSelectContainer h2 {
+  margin: 20px 0px;
+}
+.ratingselect {
+  display: flex;
+}
+
+.ratingselect .highlight {
+  background: rgb(43, 43, 223);
+  color: #fff;
+}
+
+.classRateItem {
+  width: 50px;
+  height: 50px;
+  border-radius: 1000px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.classRateItem:hover {
+  background-color: skyblue;
+  cursor: pointer;
+}
